@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Younes Ghellab — Creative Developer & Digital Entrepreneur</title>
+<meta name="description" content="Younes Ghellab is a creative web developer and co-owner of Nexus Digital Agency. I turn ideas into digital experiences.">
+<meta property="og:title" content="Younes Ghellab — Creative Developer">
+<meta property="og:description" content="I turn ideas into digital experiences. Websites, platforms and dashboards.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#07070a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@600;800&family=Manrope:wght@400;500;700&display=swap">
+<style>
+:root{--bg:#07070a;--bg2:#101016;--fg:#f4f4f6;--mut:#8d8d9b;--ac:#5b6cff;--ac2:#a05bff;--line:rgba(255,255,255,.1);--hd:'Syne','Arial Black',system-ui,sans-serif;--bd:'Manrope',system-ui,-apple-system,'Segoe UI',sans-serif;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-behavior:smooth;scroll-padding-top:calc(70px + env(safe-area-inset-top,0px));height:100%}
+*,*::before,*::after{box-sizing:inherit;margin:0}
+body{background:var(--bg);color:var(--fg);font:400 1rem/1.65 var(--bd);overflow-x:hidden;min-height:100%}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:90;opacity:.07;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1240px,100% - 2.5rem);margin-inline:auto}
+section{padding:clamp(5rem,12vw,9rem) 0;position:relative}
+h1,h2,h3{font-family:var(--hd);line-height:.95;letter-spacing:-.02em}
+h2{font-size:clamp(2.2rem,6vw,4.8rem);font-weight:800}
+.eyebrow{font:700 .75rem var(--bd);letter-spacing:.22em;text-transform:uppercase;color:var(--ac);display:flex;gap:.7rem;align-items:center;margin-bottom:1.4rem}
+.eyebrow::before{content:"";width:2rem;height:1px;background:currentColor}
+.grad{background:linear-gradient(100deg,var(--ac),var(--ac2));-webkit-background-clip:text;background-clip:text;color:transparent}
+:focus-visible{outline:2px solid var(--ac);outline-offset:4px;border-radius:6px}
+/* loader */
+#ld{position:fixed;inset:0;z-index:200;background:var(--bg);display:grid;place-items:center;transition:transform .9s cubic-bezier(.77,0,.18,1)}
+#ld b{font:800 clamp(4rem,14vw,9rem) var(--hd)}
+body.ready #ld{transform:translateY(-100%)}
+#bar{position:fixed;top:0;left:0;height:2px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--ac),var(--ac2));z-index:120}
+/* cursor */
+.cur,.ring{position:fixed;top:0;left:0;pointer-events:none;z-index:150;display:none;border-radius:50%}
+.cur{width:6px;height:6px;margin:-3px;background:#fff}
+.ring{width:38px;height:38px;margin:-19px;border:1px solid rgba(255,255,255,.5);transition:width .3s,height .3s,margin .3s,background .3s}
+.ring.big{width:74px;height:74px;margin:-37px;background:rgba(91,108,255,.18);border-color:var(--ac)}
+@media(pointer:fine){.cur,.ring{display:block}body,a,button{cursor:none}}
+/* nav */
+nav{position:fixed;inset:0 0 auto;z-index:100;padding-top:env(safe-area-inset-top,0px);backdrop-filter:blur(14px);background:rgba(7,7,10,.55);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:68px}
+.logo{font:800 1.3rem var(--hd)}.logo i{color:var(--ac);font-style:normal}
+.links{display:flex;gap:2rem;list-style:none;padding:0}
+.links a{font-size:.9rem;color:var(--mut);position:relative;transition:color .3s}
+.links a::after{content:"";position:absolute;left:0;bottom:-6px;height:1px;width:100%;background:var(--ac);transform:scaleX(0);transform-origin:0;transition:transform .35s}
+.links a:hover,.links a.on{color:var(--fg)}.links a:hover::after,.links a.on::after{transform:scaleX(1)}
+#mb{display:none;background:none;border:1px solid var(--line);color:var(--fg);border-radius:99px;padding:.5rem 1rem;font:600 .8rem var(--bd)}
+@media(max-width:800px){#mb{display:block}.links{position:fixed;inset:0;background:var(--bg);flex-direction:column;justify-content:center;align-items:center;gap:1.6rem;font-size:2rem;opacity:0;visibility:hidden;transition:.4s;z-index:-1}.links a{font:800 2.4rem var(--hd);color:var(--fg)}nav.open .links{opacity:1;visibility:visible}}
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:.6rem;padding:1rem 1.7rem;border-radius:99px;font-weight:700;border:1px solid var(--line);background:rgba(255,255,255,.04);transition:background .3s,border-color .3s;will-change:transform}
+.btn.p{background:linear-gradient(100deg,var(--ac),var(--ac2));border:0}
+.btn:hover{border-color:var(--ac)}
+/* hero */
+#hero{min-height:100svh;display:flex;align-items:center;padding-top:7rem;overflow:hidden}
+.blob{position:absolute;width:60vmax;height:60vmax;left:50%;top:50%;margin:-30vmax;border-radius:50%;background:radial-gradient(circle,rgba(91,108,255,.28),rgba(160,91,255,.12) 40%,transparent 68%);filter:blur(30px);pointer-events:none;will-change:transform}
+.hero-g{display:grid;grid-template-columns:1.35fr 1fr;gap:3rem;align-items:center;position:relative}
+.status{display:inline-flex;gap:.6rem;align-items:center;padding:.45rem 1rem;border:1px solid var(--line);border-radius:99px;font-size:.8rem;color:var(--mut);background:rgba(255,255,255,.03);margin-bottom:2rem}
+.status i{width:8px;height:8px;border-radius:50%;background:#37e08a;box-shadow:0 0 0 0 rgba(55,224,138,.6);animation:pl 2s infinite}
+@keyframes pl{70%{box-shadow:0 0 0 9px transparent}}
+#hero h1{font-size:clamp(3.4rem,10.5vw,9rem);font-weight:800}
+#hero h2.sub{font:500 clamp(1.2rem,2.6vw,2rem)/1.25 var(--bd);margin:2rem 0 2.4rem;max-width:30ch;letter-spacing:0}
+.w{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.08em}
+.w>span{display:inline-block;transform:translateY(110%);transition:transform 1s cubic-bezier(.2,.8,.2,1);transition-delay:calc(var(--i)*70ms + .5s)}
+body.ready .w>span,.rv.in .w>span{transform:none}
+.cta{display:flex;gap:1rem;flex-wrap:wrap}
+.vis{position:relative;aspect-ratio:1;display:grid;place-items:center}
+.ringtxt{position:absolute;inset:0;animation:spin 28s linear infinite}
+.ringtxt text{font:700 11.4px var(--bd);letter-spacing:.34em;fill:var(--mut)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.code{width:78%;border-radius:20px;padding:1.2rem 1.3rem;background:rgba(255,255,255,.05);border:1px solid var(--line);backdrop-filter:blur(18px);font:500 clamp(.7rem,1.2vw,.88rem)/1.8 ui-monospace,'SF Mono',Menlo,Consolas,monospace;box-shadow:0 30px 80px rgba(91,108,255,.18);animation:fl 6s ease-in-out infinite}
+.code .d{display:flex;gap:6px;margin-bottom:.8rem}.code .d i{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.2)}
+.k{color:var(--ac2)}.s{color:#7fd6b0}.c{color:var(--mut)}
+@keyframes fl{50%{transform:translateY(-12px)}}
+.scroll{position:absolute;left:50%;bottom:1.6rem;translate:-50% 0;font-size:.7rem;letter-spacing:.2em;color:var(--mut);display:grid;justify-items:center;gap:.6rem}
+.scroll::after{content:"";width:1px;height:42px;background:linear-gradient(var(--fg),transparent);animation:dr 2s infinite}
+@keyframes dr{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+@media(max-width:900px){.hero-g{grid-template-columns:1fr}.vis{max-width:340px;margin:0 auto}.scroll{display:none}}
+/* marquee */
+.mq{overflow:hidden;border-block:1px solid var(--line);padding:1.1rem 0;white-space:nowrap}
+.mq div{display:inline-flex;gap:2.5rem;animation:mq 30s linear infinite;font:800 clamp(1.6rem,4vw,3rem) var(--hd);color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.35)}
+@keyframes mq{to{transform:translateX(-50%)}}
+/* reveal */
+.rv{opacity:0;transform:translateY(40px);transition:opacity .9s,transform .9s cubic-bezier(.2,.8,.2,1);transition-delay:calc(var(--d,0)*90ms)}
+.rv.in{opacity:1;transform:none}
+/* about */
+.ab{display:grid;grid-template-columns:1fr 1.2fr;gap:4rem}
+.ab p{color:#c4c4cf;font-size:1.1rem;margin-bottom:1.3rem}.ab p b{color:var(--fg)}
+.pl{display:grid;grid-template-columns:repeat(2,1fr);gap:.8rem;margin-top:2rem;list-style:none;padding:0}
+.pl li{padding:1rem 1.1rem;border:1px solid var(--line);border-radius:14px;font-weight:500;background:rgba(255,255,255,.025);transition:.3s}
+.pl li:hover{border-color:var(--ac);transform:translateY(-3px)}
+@media(max-width:800px){.ab{grid-template-columns:1fr;gap:2rem}}
+/* projects */
+.pg{display:grid;grid-template-columns:repeat(12,1fr);gap:1.4rem;margin-top:3.5rem}
+.card{grid-column:span var(--s);border:1px solid var(--line);border-radius:26px;background:var(--bg2);overflow:hidden;display:flex;flex-direction:column;transition:border-color .4s,box-shadow .4s;transform-style:preserve-3d;position:relative}
+.card:hover{border-color:hsl(var(--h) 90% 65%/.6);box-shadow:0 30px 80px hsl(var(--h) 90% 60%/.18)}
+.th{aspect-ratio:16/9;position:relative;overflow:hidden;background:radial-gradient(120% 120% at 20% 0,hsl(var(--h) 80% 38%),hsl(calc(var(--h) + 50) 70% 14%) 70%);display:grid;place-items:center}
+.th svg{width:62%;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.card:hover .th svg{transform:scale(1.12) rotate(-2deg)}
+.th .no{position:absolute;top:1rem;left:1.2rem;font:800 .8rem var(--hd);letter-spacing:.14em;opacity:.7}
+.th .go{position:absolute;right:1.1rem;bottom:1.1rem;width:48px;height:48px;border-radius:50%;background:#fff;color:#000;display:grid;place-items:center;font-size:1.2rem;transform:scale(0);transition:transform .4s cubic-bezier(.3,1.6,.5,1)}
+.card:hover .go{transform:scale(1)}
+.bd{padding:1.5rem 1.6rem 1.7rem}
+.bd h3{font-size:1.7rem;margin-bottom:.6rem}.bd p{color:var(--mut);font-size:.96rem}
+.tags{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1.1rem}
+.tags span{font-size:.72rem;padding:.3rem .75rem;border-radius:99px;border:1px solid var(--line);color:#c4c4cf}
+.tags .lv{color:#fff;border-color:hsl(var(--h) 90% 65%/.6)}
+@media(max-width:800px){.card{grid-column:span 12}}
+/* skills */
+.sg{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:3rem}
+.grp{border:1px solid var(--line);border-radius:24px;padding:1.6rem;background:rgba(255,255,255,.02)}
+.grp h3{font-size:1.1rem;color:var(--mut);margin-bottom:1.2rem;letter-spacing:.04em}
+.ch{display:flex;gap:.9rem;align-items:center;padding:.8rem;border-radius:14px;position:relative;transition:background .3s,transform .3s;font-weight:700}
+.ch:hover{background:rgba(255,255,255,.06);transform:translateX(6px)}
+.ch em{font:800 .8rem var(--hd);font-style:normal;width:2.6rem;height:2.6rem;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,var(--ac),var(--ac2));transition:transform .5s}
+.ch:hover em{transform:rotate(360deg)}
+@media(max-width:900px){.sg{grid-template-columns:1fr}}
+/* nexus */
+#nexus{background:#ecebe6;color:#0a0a0c;overflow:hidden}
+#nexus .eyebrow{color:#3b46d6}
+#nexus h2{font-size:clamp(2.8rem,9vw,8rem);letter-spacing:-.04em}
+#nexus p{max-width:48ch;font-size:1.2rem;margin:2rem 0}
+#nexus .btn{background:#0a0a0c;color:#fff;border:0}
+.big{position:absolute;right:-2%;bottom:-8%;font:800 clamp(10rem,32vw,28rem)/1 var(--hd);color:rgba(10,10,12,.07);pointer-events:none;user-select:none}
+.nx{display:flex;gap:2.4rem;margin-top:3rem;flex-wrap:wrap;position:relative}
+.nx div{border-top:2px solid #0a0a0c;padding-top:.8rem;font:800 1.15rem var(--hd);min-width:150px}
+.nx small{display:block;font:500 .85rem var(--bd);opacity:.65;margin-top:.2rem}
+/* contact */
+.cg{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-top:3rem}
+.soc{list-style:none;padding:0;display:grid;gap:.8rem}
+.soc a{display:flex;justify-content:space-between;align-items:center;padding:1.2rem 1.4rem;border:1px solid var(--line);border-radius:18px;transition:.35s;background:rgba(255,255,255,.02)}
+.soc a:hover{border-color:var(--ac);background:rgba(91,108,255,.1);transform:translateX(8px)}
+.soc small{display:block;color:var(--mut);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase}
+form{display:grid;gap:1.2rem}
+.f label{font-size:.8rem;color:var(--mut);display:block;margin-bottom:.4rem}
+.f input,.f textarea{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:14px;padding:1rem 1.1rem;color:var(--fg);font:inherit;transition:border-color .3s}
+.f textarea{min-height:150px;resize:vertical}
+.f input:focus,.f textarea:focus{outline:0;border-color:var(--ac)}
+.f.bad input,.f.bad textarea{border-color:#ff5d73}
+.f small{display:none;color:#ff8091;font-size:.8rem;margin-top:.35rem}.f.bad small{display:block}
+#msg{padding:1rem 1.2rem;border-radius:14px;font-size:.92rem;display:none}
+#msg.ok{display:block;background:rgba(55,224,138,.1);border:1px solid rgba(55,224,138,.4)}
+#msg.err{display:block;background:rgba(255,93,115,.1);border:1px solid rgba(255,93,115,.4)}
+#msg a{text-decoration:underline}
+@media(max-width:800px){.cg{grid-template-columns:1fr;gap:2.5rem}}
+footer{border-top:1px solid var(--line);padding:2rem 0;color:var(--mut);font-size:.85rem}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition-duration:.01ms!important}.rv,.w>span{opacity:1;transform:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div id="ld" aria-hidden="true"><b id="cnt">0</b></div>
+<div id="bar"></div><div class="cur" id="cur"></div><div class="ring" id="ring"></div>
+
+<nav id="nav" aria-label="Main">
+  <div class="wrap">
+    <a href="#hero" class="logo" aria-label="Younes Ghellab, home">YG<i>.</i></a>
+    <ul class="links" id="links">
+      <li><a href="#work">Work</a></li><li><a href="#about">About</a></li><li><a href="#skills">Skills</a></li><li><a href="#nexus">Nexus</a></li><li><a href="#contact">Contact</a></li>
+    </ul>
+    <button id="mb" aria-expanded="false" aria-controls="links">Menu</button>
+  </div>
+</nav>
+
+<main>
+<section id="hero">
+  <div class="blob" id="blob"></div>
+  <div class="wrap hero-g">
+    <div>
+      <div class="status"><i></i>Available for new projects</div>
+      <h1 data-split>HEY, I’M YOUNES.</h1>
+      <h2 class="sub" data-split>Building digital experiences that make ideas real.</h2>
+      <div class="cta">
+        <a class="btn p mag" href="#work">Explore My Work <span>→</span></a>
+        <a class="btn mag" href="#contact">Let’s Talk</a>
+      </div>
+    </div>
+    <div class="vis" data-p="-0.08" aria-hidden="true">
+      <svg class="ringtxt" viewBox="0 0 200 200"><defs><path id="cp" d="M100,100 m-86,0 a86,86 0 1,1 172,0 a86,86 0 1,1 -172,0"/></defs><text><textPath href="#cp">WEB DEVELOPER • CREATIVE CODER • DIGITAL ENTREPRENEUR • </textPath></text></svg>
+      <div class="code">
+        <div class="d"><i></i><i></i><i></i></div>
+        <div><span class="k">const</span> younes = {</div>
+        <div>&nbsp;&nbsp;role: <span class="s">"Creative Developer"</span>,</div>
+        <div>&nbsp;&nbsp;agency: <span class="s">"Nexus Digital"</span>,</div>
+        <div>&nbsp;&nbsp;builds: <span class="s">"ideas → reality"</span></div>
+        <div>};</div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll">SCROLL</div>
+</section>
+
+<div class="mq" aria-hidden="true"><div><span>WEBSITES</span><span>PLATFORMS</span><span>DASHBOARDS</span><span>EXPERIENCES</span><span>WEBSITES</span><span>PLATFORMS</span><span>DASHBOARDS</span><span>EXPERIENCES</span></div></div>
+
+<section id="about"><div class="wrap ab">
+  <div class="rv"><div class="eyebrow">About</div><h2>I turn ideas into <span class="grad">digital experiences.</span></h2></div>
+  <div class="rv" style="--d:2">
+    <p>I’m Younes, a high-school student and web developer who builds like a studio. I care about the full path from an idea to something people can actually use: the interface, the interaction and the system behind it.</p>
+    <p>Most of my work solves real problems with practical software, from <b>school platforms</b> and <b>voting systems</b> to <b>e-commerce sites</b> and <b>reservation dashboards</b>. I’m also the co-owner of <b>Nexus Digital Agency</b>, where I build modern websites and digital products for businesses.</p>
+    <ul class="pl"><li>Web development</li><li>Creative coding</li><li>UI / UX design</li><li>Digital products</li></ul>
+  </div>
+</div></section>
+
+<section id="work"><div class="wrap">
+  <div class="rv"><div class="eyebrow">Selected projects</div><h2>Work that ships.</h2></div>
+  <div class="pg" id="pg"></div>
+</div></section>
+
+<section id="skills"><div class="wrap">
+  <div class="rv"><div class="eyebrow">Skills &amp; technologies</div><h2>The toolkit.</h2></div>
+  <div class="sg" id="sg"></div>
+</div></section>
+
+<section id="nexus"><div class="wrap">
+  <div class="big" aria-hidden="true" data-p="0.1">N</div>
+  <div class="rv" style="position:relative"><div class="eyebrow">Nexus Digital Agency</div>
+  <h2>Building beyond the personal.</h2>
+  <p>I’m a co-owner of Nexus Digital Agency alongside Mahmoud Zermani. Nexus is a digital agency focused on creating modern websites and digital experiences for businesses.</p>
+  <a class="btn mag" href="https://nexus1agency.netlify.app" target="_blank" rel="noopener noreferrer">Visit Nexus ↗</a>
+  <div class="nx"><div>Co-owners<small>Younes Ghellab &amp; Mahmoud Zermani</small></div><div>Focus<small>Modern websites &amp; digital experiences</small></div></div></div>
+</div></section>
+
+<section id="contact"><div class="wrap">
+  <div class="rv"><div class="eyebrow">Contact</div><h2>Have an idea? <span class="grad">Let’s make it happen.</span></h2></div>
+  <div class="cg">
+    <ul class="soc rv">
+      <li><a href="https://instagram.com/younes35workss" target="_blank" rel="noopener noreferrer"><span><small>Instagram</small>@younes35workss</span><span>↗</span></a></li>
+      <li><a href="https://github.com/Younes35Kali" target="_blank" rel="noopener noreferrer"><span><small>GitHub</small>Younes35Kali</span><span>↗</span></a></li>
+      <li><a href="https://www.linkedin.com/in/younes-ghellab-a26078284" target="_blank" rel="noopener noreferrer"><span><small>LinkedIn</small>younes-ghellab</span><span>↗</span></a></li>
+      <li><a href="https://nexus1agency.netlify.app" target="_blank" rel="noopener noreferrer"><span><small>Agency</small>Nexus Digital Agency</span><span>↗</span></a></li>
+    </ul>
+    <form id="fm" class="rv" style="--d:2" novalidate>
+      <div class="f"><label for="n">Name</label><input id="n" name="n" autocomplete="name"><small>Please enter your name.</small></div>
+      <div class="f"><label for="e">Email</label><input id="e" name="e" type="email" autocomplete="email"><small>Please enter a valid email address.</small></div>
+      <div class="f"><label for="m">Your idea</label><textarea id="m" name="m"></textarea><small>Tell me a little more (at least 15 characters).</small></div>
+      <button class="btn p mag" type="submit" style="justify-content:center">Prepare message →</button>
+      <div id="msg" role="status" aria-live="polite"></div>
+    </form>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap"><span>© <span id="yr"></span> Younes Ghellab</span><span>Designed &amp; built by me.</span></div></footer>
+
+<script>
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const fine=matchMedia('(pointer:fine)').matches,still=matchMedia('(prefers-reduced-motion:reduce)').matches;
+$('#yr').textContent=new Date().getFullYear();
+
+/* project data */
+const sv={
+bars:'<g fill="rgba(255,255,255,.85)"><rect x="20" y="70" width="18" height="30" rx="4"/><rect x="48" y="50" width="18" height="50" rx="4"/><rect x="76" y="62" width="18" height="38" rx="4"/><rect x="104" y="30" width="18" height="70" rx="4"/></g><g fill="rgba(255,255,255,.3)"><rect x="140" y="30" width="44" height="8" rx="4"/><rect x="140" y="48" width="34" height="8" rx="4"/><rect x="140" y="66" width="40" height="8" rx="4"/></g>',
+qr:'<g fill="rgba(255,255,255,.88)"><rect x="30" y="20" width="26" height="26" rx="5"/><rect x="30" y="64" width="26" height="26" rx="5"/><rect x="74" y="20" width="26" height="26" rx="5"/><rect x="74" y="64" width="12" height="12"/><rect x="92" y="78" width="12" height="12"/></g><path d="M130 66l12 12 26-32" stroke="rgba(255,255,255,.9)" stroke-width="9" fill="none" stroke-linecap="round"/>',
+ppl:'<g fill="rgba(255,255,255,.85)"><circle cx="60" cy="42" r="16"/><circle cx="108" cy="42" r="16"/><circle cx="156" cy="42" r="16"/></g><g fill="rgba(255,255,255,.35)"><rect x="40" y="68" width="40" height="30" rx="14"/><rect x="88" y="68" width="40" height="30" rx="14"/><rect x="136" y="68" width="40" height="30" rx="14"/></g>',
+bag:'<g fill="rgba(255,255,255,.85)"><rect x="25" y="20" width="70" height="52" rx="10"/><rect x="105" y="20" width="70" height="52" rx="10"/></g><g fill="rgba(255,255,255,.32)"><rect x="25" y="82" width="45" height="8" rx="4"/><rect x="105" y="82" width="38" height="8" rx="4"/></g><circle cx="168" cy="92" r="11" fill="#fff"/>',
+cal:'<g fill="rgba(255,255,255,.35)">'+Array.from({length:21},(_,i)=>`<rect x="${22+(i%7)*24}" y="${24+Math.floor(i/7)*26}" width="18" height="18" rx="5"/>`).join('')+'</g><rect x="94" y="50" width="42" height="18" rx="5" fill="#fff"/>',
+menu:'<circle cx="62" cy="60" r="38" fill="none" stroke="rgba(255,255,255,.88)" stroke-width="8"/><circle cx="62" cy="60" r="20" fill="rgba(255,255,255,.3)"/><g fill="rgba(255,255,255,.7)"><rect x="118" y="34" width="62" height="8" rx="4"/><rect x="118" y="54" width="48" height="8" rx="4"/><rect x="118" y="74" width="56" height="8" rx="4"/></g>',
+phone:'<rect x="70" y="8" width="60" height="104" rx="14" fill="none" stroke="rgba(255,255,255,.9)" stroke-width="6"/><g fill="rgba(255,255,255,.7)"><rect x="82" y="26" width="36" height="22" rx="6"/><rect x="82" y="56" width="36" height="8" rx="4"/><rect x="82" y="72" width="24" height="8" rx="4"/></g>',
+hat:'<g fill="rgba(255,255,255,.88)"><circle cx="78" cy="48" r="26"/><circle cx="108" cy="40" r="28"/><circle cx="136" cy="50" r="24"/><rect x="72" y="62" width="70" height="40" rx="8"/></g><rect x="72" y="86" width="70" height="6" fill="rgba(0,0,0,.25)"/>'};
+const P=[
+['Lahbiki Platform','A school management and educational platform covering grades, subjects, homework, student accounts and administration.','https://lahbiki-platform.lovable.app',['Built with Lovable'],'bars',230,7],
+['DTA Awards','A digital voting platform with daily voting and QR code integration.','https://dtawards.lovable.app',['Built with Lovable'],'qr',285,5],
+['Mejdan Ali Community','A school community platform for student and staff interaction.','https://mejdan-ali-community.vercel.app',['Hosted on Vercel'],'ppl',165,5],
+['iPad Queen','An e-commerce website with a product catalog, orders and administration.','',[],'bag',330,7],
+['Hotel Opera','A hotel reservation experience with an administrative dashboard.','',[],'cal',35,6],
+['Dar Lmima','A restaurant website.','',[],'menu',12,6],
+['Amari Telecom','A website for telecom and mobile products.','https://amaritelecom.vercel.app',['Hosted on Vercel'],'phone',200,6],
+['ISM Boumerdes','A digital project around hospitality, tourism, cuisine and pastry.','',[],'hat',265,6]];
+$('#pg').innerHTML=P.map((p,i)=>{
+ const [n,d,u,t,k,h,s]=p,tg=t.map(x=>`<span class="lv">${x}</span>`).join('')+(u?'':'<span>Case study · no public link</span>');
+ const inner=`<div class="th"><span class="no">0${i+1}</span><svg viewBox="0 0 200 120" aria-hidden="true">${sv[k]}</svg>${u?'<span class="go" aria-hidden="true">↗</span>':''}</div><div class="bd"><h3>${n}</h3><p>${d}</p><div class="tags">${tg}</div></div>`;
+ const a=u?`<a href="${u}" target="_blank" rel="noopener noreferrer" aria-label="${n} — view live site" style="display:contents">${inner}</a>`:inner;
+ return `<article class="card rv tilt" style="--h:${h};--s:${s};--d:${i%2}">${a}</article>`}).join('');
+
+const S=[['Frontend',[['HTML','<>'],['CSS','{}'],['JavaScript','JS'],['React','Re'],['Next.js','Nx'],['Tailwind CSS','Tw']]],['Backend & Data',[['Supabase','Sb'],['Firebase','Fb']]],['Workflow & Deployment',[['Git & GitHub','Gt'],['Vercel','Vc'],['Lovable','Lv']]]];
+$('#sg').innerHTML=S.map(([g,l],i)=>`<div class="grp rv" style="--d:${i}"><h3>${g.toUpperCase()}</h3>${l.map(([n,a])=>`<div class="ch"><em>${a}</em>${n}</div>`).join('')}</div>`).join('');
+
+/* split text */
+$$('[data-split]').forEach(el=>{let i=0;el.setAttribute('aria-label',el.textContent);el.innerHTML=el.textContent.split(' ').map(w=>`<span class="w" aria-hidden="true"><span style="--i:${i++}">${w}</span></span>`).join(' ')});
+
+/* loader */
+let c=0;const cn=$('#cnt'),tick=()=>{c=Math.min(100,c+(still?100:3));cn.textContent=c;c<100?requestAnimationFrame(tick):setTimeout(()=>document.body.classList.add('ready'),250)};tick();
+
+/* reveal */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+$$('.rv').forEach(el=>io.observe(el));
+
+/* nav */
+const nav=$('#nav'),mb=$('#mb');
+mb.onclick=()=>{const o=nav.classList.toggle('open');mb.setAttribute('aria-expanded',o);mb.textContent=o?'Close':'Menu';document.body.style.overflow=o?'hidden':''};
+$$('.links a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');mb.setAttribute('aria-expanded',false);mb.textContent='Menu';document.body.style.overflow=''}));
+const so=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)$$('.links a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-45% 0px -50% 0px'});
+$$('main section[id]').forEach(s=>so.observe(s));
+
+/* scroll: progress + parallax */
+const bar=$('#bar'),pe=$$('[data-p]');let tk=false;
+function onS(){tk=false;const y=scrollY,m=document.documentElement.scrollHeight-innerHeight;bar.style.transform=`scaleX(${m>0?y/m:0})`;if(!still)pe.forEach(e=>{const r=e.getBoundingClientRect();e.style.translate=`0 ${(r.top+r.height/2-innerHeight/2)*e.dataset.p}px`})}
+addEventListener('scroll',()=>{if(!tk){tk=true;requestAnimationFrame(onS)}},{passive:true});onS();
+
+/* cursor, blob, magnetic, tilt */
+if(fine&&!still){
+ const cur=$('#cur'),ring=$('#ring'),blob=$('#blob');let mx=0,my=0,rx=0,ry=0;
+ addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.transform=`translate(${mx}px,${my}px)`;blob.style.transform=`translate(${(mx-innerWidth/2)*.08}px,${(my-innerHeight/2)*.08}px)`});
+ (function l(){rx+=(mx-rx)*.16;ry+=(my-ry)*.16;ring.style.transform=`translate(${rx}px,${ry}px)`;requestAnimationFrame(l)})();
+ document.addEventListener('mouseover',e=>ring.classList.toggle('big',!!e.target.closest('a,button,.ch,.card')));
+ $$('.mag').forEach(b=>{b.addEventListener('mousemove',e=>{const r=b.getBoundingClientRect();b.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.3}px,${(e.clientY-r.top-r.height/2)*.4}px)`});b.addEventListener('mouseleave',()=>b.style.transform='')});
+ $$('.tilt').forEach(c=>{c.addEventListener('mousemove',e=>{const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transition='border-color .4s,box-shadow .4s';c.style.transform=`perspective(900px) rotateY(${x*6}deg) rotateX(${-y*6}deg) translateY(-4px)`});c.addEventListener('mouseleave',()=>c.style.transform='')});
+}
+
+/* contact form: no backend is configured, so the message is prepared, not sent */
+const fm=$('#fm'),msg=$('#msg'),ok={n:v=>v.trim().length>1,e:v=>/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v),m:v=>v.trim().length>=15};
+fm.addEventListener('submit',async ev=>{ev.preventDefault();msg.className='';let good=true;
+ for(const k in ok){const i=fm.elements[k],v=ok[k](i.value);i.closest('.f').classList.toggle('bad',!v);if(!v)good=false}
+ if(!good){msg.className='err';msg.textContent='Please fix the highlighted fields.';return}
+ const txt=`Hi Younes, I’m ${fm.n.value.trim()} (${fm.e.value.trim()}).\n\n${fm.m.value.trim()}`;
+ try{await navigator.clipboard.writeText(txt);msg.className='ok';msg.innerHTML='Your message is copied. This site has no mail server, so nothing has been sent yet. <a href="https://instagram.com/younes35workss" target="_blank" rel="noopener noreferrer">Paste it to me on Instagram ↗</a>';fm.reset()}
+ catch{msg.className='err';msg.innerHTML='Couldn’t copy automatically, and nothing was sent. Please <a href="https://instagram.com/younes35workss" target="_blank" rel="noopener noreferrer">message me on Instagram ↗</a> instead.'}});
+$$('.f input,.f textarea').forEach(i=>i.addEventListener('input',()=>i.closest('.f').classList.remove('bad')));
+</script>
+</body>
+</html>
